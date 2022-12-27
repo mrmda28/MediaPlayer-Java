@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.mrmda28.mediaplayer'
-    mainClass = 'com.mrmda28.mediaplayer.HelloApplication'
+    mainClass = 'com.mrmda28.mediaplayer.App'
 }
 
 javafx {
