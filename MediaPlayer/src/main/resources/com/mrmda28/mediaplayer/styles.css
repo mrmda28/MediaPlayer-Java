@@ -1,8 +1,87 @@
+* {
+    -fx-alignment: center;
+}
+
 .root {
     -fx-background-color: #282828;
 }
 
 #controlView {
-    -fx-pref-height: 50;
+    -fx-pref-height: 55;
     -fx-background-color: #303030;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.button:pressed {
+    -fx-background-color: #EB8911;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+/* --- Buttons HBox ---*/
+#previousButton {
+
+}
+
+#controlButton {
+
+}
+
+#nextButton {
+
+}
+
+#stopButton {
+
+}
+
+/* --- Track Border ---*/
+#trackBorder {
+}
+
+#currentTimeLabel {
+
+}
+
+.slider .track {
+    -fx-opacity: 0.1;
+    -fx-background-color: white;
+}
+
+.slider .thumb {
+    -fx-background-color: #EB8911;
+}
+
+#trackSlider {
+
+}
+
+#durationTimeLabel {
+
+}
+
+/* --- Volume Border ---*/
+#volumeBorder {
+
+}
+
+#minVolumeImageView {
+
+}
+
+#volumeSlider {
+    -fx-pref-width: 90;
+}
+
+#maxVolumeImageView {
+
 }
