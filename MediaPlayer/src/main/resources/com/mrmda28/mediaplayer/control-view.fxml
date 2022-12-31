@@ -9,25 +9,25 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane fx:id="controlView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="controlView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrmda28.mediaplayer.ControlButtonsController">
     <left>
         <HBox>
-            <Button fx:id="previousButton">
+            <Button fx:id="previousButton" onAction="#onPreviousButtonClick">
                 <HBox.margin>
                     <Insets left="4.0" right="2.0"/>
                 </HBox.margin>
             </Button>
-            <Button fx:id="controlButton">
+            <Button fx:id="controlButton" onAction="#onControlButtonClick">
                 <HBox.margin>
                     <Insets left="2.0" right="2.0"/>
                 </HBox.margin>
             </Button>
-            <Button fx:id="nextButton">
+            <Button fx:id="nextButton" onAction="#onNextButtonClick">
                 <HBox.margin>
                     <Insets left="2.0" right="2.0"/>
                 </HBox.margin>
             </Button>
-            <Button fx:id="stopButton">
+            <Button fx:id="stopButton" onAction="#onStopButtonClick">
                 <HBox.margin>
                     <Insets left="2.0" right="4.0" />
                 </HBox.margin>
@@ -47,7 +47,7 @@
                 </Label>
             </left>
             <center>
-                <Slider fx:id="trackSlider"/>
+                <Slider fx:id="trackSlider" onMouseReleased="#onTrackSliderChanged"/>
             </center>
             <right>
                 <Label fx:id="durationTimeLabel" BorderPane.alignment="CENTER">
@@ -72,7 +72,7 @@
                 </ImageView>
             </left>
             <center>
-                <Slider fx:id="volumeSlider"/>
+                <Slider fx:id="volumeSlider" onMouseReleased="#onVolumeSliderChanged"/>
             </center>
             <right>
                 <ImageView fx:id="maxVolumeImageView" BorderPane.alignment="CENTER">
