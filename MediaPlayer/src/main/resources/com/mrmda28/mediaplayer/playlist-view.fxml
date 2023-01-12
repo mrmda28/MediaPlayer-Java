@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
 
-<Pane fx:id="playlistView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"/>
+<TableView fx:id="playlistView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <columns>
+        <TableColumn fx:id="titleColumn" text="Title" editable="false" reorderable="false" sortable="false"
+                     maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0"/>
+        <TableColumn fx:id="durationColumn" text="Duration" editable="false" reorderable="false" resizable="false"
+                     sortable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0"/>
+    </columns>
+    <columnResizePolicy>
+        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+    </columnResizePolicy>
+    <placeholder>
+        <Label text="Drop media here"/>
+    </placeholder>
+</TableView>
