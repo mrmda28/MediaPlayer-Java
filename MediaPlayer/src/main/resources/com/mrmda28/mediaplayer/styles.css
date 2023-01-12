@@ -4,6 +4,7 @@
 
 .root {
     -fx-background-color: #282828;
+    -fx-font-family: monospace;
 }
 
 #controlView {
