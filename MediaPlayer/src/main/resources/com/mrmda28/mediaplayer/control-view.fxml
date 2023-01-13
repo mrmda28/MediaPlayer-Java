@@ -72,7 +72,7 @@
                 </ImageView>
             </left>
             <center>
-                <Slider fx:id="volumeSlider" onMouseReleased="#onVolumeSliderChanged"/>
+                <Slider fx:id="volumeSlider"/>
             </center>
             <right>
                 <ImageView fx:id="maxVolumeImageView" BorderPane.alignment="CENTER">

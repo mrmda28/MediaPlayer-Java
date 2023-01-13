@@ -6,14 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
-import com.mrmda28.mediaplayer.IMediaPlayer;
-import com.mrmda28.mediaplayer.MediaPlayer;
+import com.mrmda28.mediaplayer.MediaPlayer.IMediaPlayer;
+import com.mrmda28.mediaplayer.MediaPlayer.MediaPlayer;
 
-import com.mrmda28.mediaplayer.IVolumeManager;
-import com.mrmda28.mediaplayer.VolumeManager;
-
-import static com.mrmda28.mediaplayer.Defaults.*;
-import static com.mrmda28.mediaplayer.Helper.getFormattedTime;
+import static com.mrmda28.mediaplayer.Helpers.Defaults.*;
+import static com.mrmda28.mediaplayer.Helpers.Helper.getFormattedTime;
 
 public class ControlButtonsController {
     @FXML
@@ -68,12 +65,6 @@ public class ControlButtonsController {
     }
 
     @FXML
-    protected void onVolumeSliderChanged() {
-        double sliderValue = volumeSlider.getValue();
-        volumeManager.setValue(sliderValue);
-    }
-
-    @FXML
     private void initialize() {
         previousButton.setText(PREVIOUS_IMAGE);
         controlButton.setText(PLAY_IMAGE);
@@ -94,7 +85,6 @@ public class ControlButtonsController {
     }
 
     private final IMediaPlayer mediaPlayer = new MediaPlayer();
-    private final IVolumeManager volumeManager = new VolumeManager();
     private ControlButtonState controlButtonState = ControlButtonState.PAUSE;
 
     private enum ControlButtonState {

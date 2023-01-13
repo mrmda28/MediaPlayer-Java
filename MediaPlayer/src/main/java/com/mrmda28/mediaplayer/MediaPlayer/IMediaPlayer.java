@@ -1,4 +1,4 @@
-package com.mrmda28.mediaplayer;
+package com.mrmda28.mediaplayer.MediaPlayer;
 
 public interface IMediaPlayer {
     void play();
