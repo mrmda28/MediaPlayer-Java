@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.mrmda28.mediaplayer.Defaults.*;
+import static com.mrmda28.mediaplayer.Helpers.Defaults.*;
 
 public class App extends Application {
     @Override

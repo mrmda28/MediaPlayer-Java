@@ -1,9 +1,9 @@
-package com.mrmda28.mediaplayer;
+package com.mrmda28.mediaplayer.Helpers;
 
 import java.time.Duration;
 
 public class Helper {
-    static String getFormattedTime(int time) {
+    public static String getFormattedTime(int time) {
         Duration duration = Duration.ofMillis(time);
         long HH = duration.toHours();
         long MM = duration.toMinutesPart();
