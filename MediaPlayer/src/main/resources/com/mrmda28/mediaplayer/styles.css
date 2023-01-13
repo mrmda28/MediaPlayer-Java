@@ -1,6 +1,7 @@
 * {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-font-family: "Menlo";
     -fx-alignment: center;
     -fx-text-fill: white;
     -fx-font-size: 14;
@@ -8,7 +9,6 @@
 
 .root {
     -fx-background-color: #282828;
-    -fx-font-family: monospace;
 }
 
 /* --- Playlist TableView ---*/
@@ -16,7 +16,7 @@
     -fx-background-color: #303030;
 }
 
-.table-view .column-header .label{
+.table-view .column-header .label {
     -fx-alignment: center-left;
     -fx-font-weight: bold;
     -fx-font-size: 17;
@@ -74,6 +74,7 @@
 
 /* --- Track Border ---*/
 #trackBorder {
+
 }
 
 #currentTimeLabel {
