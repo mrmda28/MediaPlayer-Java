@@ -1,7 +1,6 @@
 * {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-    -fx-font-family: "Menlo";
     -fx-alignment: center;
     -fx-text-fill: white;
     -fx-font-size: 14;
@@ -12,6 +11,10 @@
 }
 
 /* --- Playlist TableView ---*/
+#playlistView {
+    -fx-font-family: "Menlo";
+}
+
 .table-view .column-header {
     -fx-background-color: #303030;
 }
@@ -35,6 +38,7 @@
 
 /* --- Control BorderPane ---*/
 #controlView {
+    -fx-font-family: monospace;
     -fx-pref-height: 55;
     -fx-background-color: #303030;
 }
@@ -61,7 +65,7 @@
 }
 
 #controlButton {
-
+    -fx-font-weight: bold;
 }
 
 #nextButton {
