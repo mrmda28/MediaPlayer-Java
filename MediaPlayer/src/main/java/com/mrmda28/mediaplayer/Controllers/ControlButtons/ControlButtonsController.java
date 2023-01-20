@@ -1,4 +1,4 @@
-package com.mrmda28.mediaplayer;
+package com.mrmda28.mediaplayer.Controllers.ControlButtons;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

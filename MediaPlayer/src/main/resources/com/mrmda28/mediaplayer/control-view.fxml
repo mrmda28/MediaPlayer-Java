@@ -9,7 +9,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane fx:id="controlView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrmda28.mediaplayer.ControlButtonsController">
+<BorderPane fx:id="controlView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrmda28.mediaplayer.Controllers.ControlButtons.ControlButtonsController">
     <left>
         <HBox>
             <Button fx:id="previousButton" onAction="#onPreviousButtonClick">
