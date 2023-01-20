@@ -134,8 +134,12 @@ public class ControlButtonsController implements IControlButtonsDelegate {
         volumeSlider.setDisable(value);
     }
 
-    public void setPlayingStatus() {
-        controlButtonState = ControlButtonState.PAUSE;
+    public void setPlayingStatus(boolean status) {
+        if (status) {
+            controlButtonState = ControlButtonState.PAUSE;
+        } else {
+            controlButtonState = ControlButtonState.PLAY;
+        }
         changeButtonState();
     }
 }

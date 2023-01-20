@@ -53,9 +53,9 @@ public final class Player implements IPlayer {
             pause();
             mediaIndex = index;
             media = new Media(playlist.get(mediaIndex).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer = createMediaPlayer(media);
             mediaPlayer.setOnReady(this::play);
-            controlDelegate.setPlayingStatus();
+            controlDelegate.setPlayingStatus(true);
         }
     }
 
@@ -85,7 +85,7 @@ public final class Player implements IPlayer {
             if (mediaIndex > 0) {
                 mediaIndex -= 1;
                 media = new Media(playlist.get(mediaIndex).toURI().toString());
-                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer = createMediaPlayer(media);
                 playlistDelegate.selectCell(mediaIndex);
             }
             if (isPlaying) {
@@ -100,7 +100,7 @@ public final class Player implements IPlayer {
             if (mediaIndex < (playlist.size() - 1)) {
                 mediaIndex += 1;
                 media = new Media(playlist.get(mediaIndex).toURI().toString());
-                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer = createMediaPlayer(media);
                 playlistDelegate.selectCell(mediaIndex);
             }
             if (isPlaying) {
@@ -112,7 +112,7 @@ public final class Player implements IPlayer {
     public void setFiles(List<File> files) {
         playlist = new ArrayList<>(files);
         media = new Media(playlist.get(mediaIndex).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = createMediaPlayer(media);
         mediaPlayer.setOnReady(() -> {
             controlDelegate.setDisable(false);
             playlistDelegate.selectCell(mediaIndex);
@@ -122,6 +122,26 @@ public final class Player implements IPlayer {
     public void setVolume(double value) {
         if (isReady()) {
             mediaPlayer.setVolume(value * 0.01);
+        }
+    }
+
+    private MediaPlayer createMediaPlayer(Media media) {
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setOnEndOfMedia(this::nextAfterEnd);
+        return mediaPlayer;
+    }
+
+    private void nextAfterEnd() {
+        controlDelegate.setPlayingStatus(false);
+        if (mediaIndex == (playlist.size() - 1)) {
+            mediaIndex = 0;
+            media = new Media(playlist.get(mediaIndex).toURI().toString());
+            mediaPlayer = createMediaPlayer(media);
+            playlistDelegate.selectCell(mediaIndex);
+        } else {
+            isPlaying = true;
+            controlDelegate.setPlayingStatus(true);
+            next();
         }
     }
 }
