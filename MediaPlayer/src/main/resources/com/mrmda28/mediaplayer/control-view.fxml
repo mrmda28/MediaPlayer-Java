@@ -11,7 +11,7 @@
 
 <BorderPane fx:id="controlView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrmda28.mediaplayer.Controllers.ControlButtons.ControlButtonsController">
     <left>
-        <HBox>
+        <HBox fx:id="controlButtons">
             <Button fx:id="previousButton" onAction="#onPreviousButtonClick">
                 <HBox.margin>
                     <Insets left="4.0" right="2.0"/>

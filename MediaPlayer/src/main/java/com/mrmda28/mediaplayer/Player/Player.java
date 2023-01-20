@@ -1,5 +1,7 @@
 package com.mrmda28.mediaplayer.Player;
 
+import com.mrmda28.mediaplayer.Controllers.ControlButtons.IControlButtonsDelegate;
+
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -12,13 +14,20 @@ public final class Player implements IPlayer {
     private Media media;
     private MediaPlayer mediaPlayer;
 
+    private IControlButtonsDelegate controlDelegate;
+
     // Singleton
     private static final Player instance = new Player();
-    private Player() {}
+    private Player() { }
     public static Player shared = instance;
 
     private boolean isReady() {
         return mediaPlayer != null;
+    }
+
+    // IPlayer methods
+    public void setControlDelegate(IControlButtonsDelegate delegate) {
+        controlDelegate = delegate;
     }
 
     public void play() {

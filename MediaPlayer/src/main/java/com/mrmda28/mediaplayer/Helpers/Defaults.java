@@ -7,8 +7,8 @@ public class Defaults {
     public static double MIN_WIDTH = 600;
     public static double MIN_HEIGHT = 400;
     public static String PREVIOUS_IMAGE = "<<";
-    public static String PLAY_IMAGE = " || ";
-    public static String PAUSE_IMAGE = " [> ";
+    public static String PLAY_IMAGE = " [> ";
+    public static String PAUSE_IMAGE = " || ";
     public static String NEXT_IMAGE = ">>";
     public static String STOP_IMAGE = "□";
     public static double IMAGE_SIDE = 20.0;

@@ -8,11 +8,14 @@ import javafx.scene.image.ImageView;
 
 import com.mrmda28.mediaplayer.Player.IPlayer;
 import com.mrmda28.mediaplayer.Player.Player;
+import javafx.scene.layout.HBox;
 
 import static com.mrmda28.mediaplayer.Helpers.Defaults.*;
 import static com.mrmda28.mediaplayer.Helpers.Helper.getFormattedTime;
 
-public class ControlButtonsController {
+public class ControlButtonsController implements IControlButtonsDelegate {
+    @FXML
+    private HBox controlButtons;
     @FXML
     private Button previousButton;
     @FXML
@@ -59,13 +62,16 @@ public class ControlButtonsController {
     }
 
     @FXML
-    protected void onTrackSliderChanged() {
-        int sliderValue = (int) (trackSlider.getValue() * 1000.0); // ms
-        mediaPlayer.seek(sliderValue);
-    }
+    protected void onTrackSliderChanged() { }
 
     @FXML
     private void initialize() {
+        mediaPlayer.setControlDelegate(this);
+        setDisable(true);
+        configureUI();
+    }
+
+    private void configureUI() {
         previousButton.setText(PREVIOUS_IMAGE);
         controlButton.setText(PLAY_IMAGE);
         nextButton.setText(NEXT_IMAGE);
@@ -79,6 +85,10 @@ public class ControlButtonsController {
 
         volumeSlider.setMin(MIN_VOLUME);
         volumeSlider.setMax(MAX_VOLUME);
+        volumeSlider.setValue(MAX_VOLUME);
+        volumeSlider.valueProperty().addListener((observable, oldValue, newValue) ->
+                mediaPlayer.setVolume(volumeSlider.getValue())
+        );
 
         maxVolumeImageView.setFitWidth(IMAGE_SIDE);
         maxVolumeImageView.setFitHeight(IMAGE_SIDE);
@@ -116,5 +126,16 @@ public class ControlButtonsController {
     }
     private void setImage(ControlButtonState state) {
         controlButton.setText(state.getImage());
+    }
+
+    public void setDisable(boolean value) {
+        controlButtons.setDisable(value);
+        trackSlider.setDisable(value);
+        volumeSlider.setDisable(value);
+    }
+
+    public void setPlayingStatus() {
+        controlButtonState = ControlButtonState.PAUSE;
+        changeButtonState();
     }
 }
