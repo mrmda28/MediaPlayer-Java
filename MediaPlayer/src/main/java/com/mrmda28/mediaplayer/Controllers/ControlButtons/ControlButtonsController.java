@@ -6,8 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
-import com.mrmda28.mediaplayer.MediaPlayer.IMediaPlayer;
-import com.mrmda28.mediaplayer.MediaPlayer.MediaPlayer;
+import com.mrmda28.mediaplayer.Player.IPlayer;
+import com.mrmda28.mediaplayer.Player.Player;
 
 import static com.mrmda28.mediaplayer.Helpers.Defaults.*;
 import static com.mrmda28.mediaplayer.Helpers.Helper.getFormattedTime;
@@ -84,7 +84,7 @@ public class ControlButtonsController {
         maxVolumeImageView.setFitHeight(IMAGE_SIDE);
     }
 
-    private final IMediaPlayer mediaPlayer = new MediaPlayer();
+    private final IPlayer mediaPlayer = Player.shared;
     private ControlButtonState controlButtonState = ControlButtonState.PAUSE;
 
     private enum ControlButtonState {

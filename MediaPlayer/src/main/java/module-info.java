@@ -1,6 +1,7 @@
 module com.mrmda28.mediaplayer {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 
 
     opens com.mrmda28.mediaplayer to javafx.fxml;
