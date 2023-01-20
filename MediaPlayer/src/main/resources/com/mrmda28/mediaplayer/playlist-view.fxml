@@ -6,7 +6,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
 
-<TableView fx:id="playlistView" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<TableView fx:id="playlistView" fx:controller="com.mrmda28.mediaplayer.Controllers.Playlist.PlaylistController"
+           xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <columns>
         <TableColumn fx:id="titleColumn" text="Title" editable="false" reorderable="false" sortable="false"
                      maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0"/>
@@ -20,7 +21,7 @@
         <VBox spacing="5">
             <Label text="Drop media here"/>
             <Label text="— or —"/>
-            <Button text="Open media" fx:id="openMediaButton"/>
+            <Button text="Open media" fx:id="openMediaButton" onAction="#onOpenMediaButtonClick"/>
         </VBox>
     </placeholder>
 </TableView>
