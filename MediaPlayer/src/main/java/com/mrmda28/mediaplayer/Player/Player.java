@@ -110,9 +110,13 @@ public final class Player implements IPlayer {
     }
 
     public void setFiles(List<File> files) {
-        playlist = new ArrayList<>(files);
-        media = new Media(playlist.get(mediaIndex).toURI().toString());
-        mediaPlayer = createMediaPlayer(media);
+        if (playlist == null) {
+            playlist = new ArrayList<>(files);
+            media = new Media(playlist.get(mediaIndex).toURI().toString());
+            mediaPlayer = createMediaPlayer(media);
+        } else {
+            playlist.addAll(files);
+        }
         mediaPlayer.setOnReady(() -> {
             controlDelegate.setDisable(false);
             playlistDelegate.selectCell(mediaIndex);

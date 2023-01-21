@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.stage.FileChooser;
 
 import java.util.*;
@@ -73,9 +75,28 @@ public class PlaylistController implements IPlaylistDelegate {
             });
             return row ;
         });
+        playlistView.setItems(mediaModels);
+        playlistView.setOnDragOver(event -> {
+            if (event.getGestureSource() != playlistView && event.getDragboard().hasFiles()) {
+                event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+            }
+            event.consume();
+        });
+        playlistView.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasFiles()) {
+                mediaModels.addAll(db.getFiles().stream().map(file ->
+                        new MediaModel(file.getPath(), file.getName(), "--:--")
+                ).toList());
+                mediaPlayer.setFiles(db.getFiles());
+                success = true;
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         durationColumn.setCellValueFactory(new PropertyValueFactory<>("Duration"));
-        playlistView.setItems(mediaModels);
     }
 
     public void selectCell(int index) {
